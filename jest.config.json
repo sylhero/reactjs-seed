@@ -1,0 +1,15 @@
+{
+     "moduleNameMapper": {
+         "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js",
+         "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/__mocks__/fileMock.js"
+     },
+     "testPathIgnorePatterns": [
+         "<rootDir>/(app-build|node_modules)/"
+     ],
+     "transformIgnorePatterns": [
+         "node_modules/?!(antd)"
+     ],
+     "setupFiles": ["<rootDir>/testShim.js", "<rootDir>/setupTests.js"],
+     "testRegex": "(/__tests__/.*\\.spec)\\.(jsx|js)$",
+     "snapshotSerializers": ["enzyme-to-json/serializer"]
+ }

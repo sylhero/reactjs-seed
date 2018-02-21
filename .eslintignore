@@ -1,0 +1,8 @@
+# /node_modules/* and /bower_components/* ignored by default
+
+*config/*
+*build/*
+src/index.jsx
+src/Store.jsx
+
+
