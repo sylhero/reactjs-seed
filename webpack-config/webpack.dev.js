@@ -2,7 +2,6 @@ const rules = require('./webpack.rules');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 /**
@@ -48,6 +47,9 @@ module.exports = {
         app: [
             'react-hot-loader/patch',
             './src/index.jsx'
+        ],
+        vendor: [
+            './src/Vendor.jsx'
         ]
     },
     devtool: 'eval',
@@ -88,18 +90,14 @@ module.exports = {
         port: 4000,
         host: 'localhost'
     },
+    /**
+     * webpack 4 new optimization feature list
+     * https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a
+     * StyleLintPlugin is unknown
+     */
     plugins: [
         // new BundleAnalyzerPlugin(),
-        new StyleLintPlugin({
-            failOnError: false,
-            emitErrors: true,
-            quiet: false,
-            syntax: 'scss'
-        }),
-        new webpack.optimize.ModuleConcatenationPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: true,
