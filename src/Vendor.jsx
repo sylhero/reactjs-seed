@@ -5,3 +5,4 @@ import 'react-dom';
 import 'react-redux';
 import 'redux';
 import 'prop-types';
+import 'react-router-dom';

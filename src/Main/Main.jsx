@@ -10,6 +10,7 @@ class Main extends PureComponent {
     }
     handleInput = (event) => {
         this.setState({ userInput: event.target.value });
+        console.log(this.state.userInput);
     }
     handleClick = () => {
         this.inputElement.focus();
