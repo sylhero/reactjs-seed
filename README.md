@@ -1,6 +1,6 @@
 # Reactjs-seed
 
-This is a basic setup for es6 + react + redux + jest + antd + webpack3 development
+This is a full setup for es6 + react + redux + jest + antd + webpack4 development
 
 Browser & OS Support:
 
