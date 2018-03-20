@@ -3,6 +3,7 @@
          "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js",
          "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/__mocks__/fileMock.js"
      },
+     "collectCoverageFrom": ["src/**/*.{js,jsx}"],
      "testPathIgnorePatterns": [
          "<rootDir>/(app-build|node_modules)/"
      ],

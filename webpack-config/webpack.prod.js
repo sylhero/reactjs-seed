@@ -1,9 +1,8 @@
 const rules = require('./webpack.rules');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const MinifyPlugin = require('babel-minify-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 /**
@@ -14,21 +13,22 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 rules.push({
     test: /\.css$/,
     include: /(node_modules)/,
-    use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: 'css-loader'
-    })
+    use: [MiniCssExtractPlugin.loader, {
+            loader: 'css-loader',
+            options: {
+                minimize: true
+            }
+        }]
 });
 
 // push app css rule
 rules.push({
     test: /\.scss$/,
     include: [path.resolve(__dirname, '../src')],
-    use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [{
+    use: [MiniCssExtractPlugin.loader,
+        {
             loader: 'css-loader',
-            query: {
+            options: {
                 modules: true,
                 localIdentName: '[name]--[local]',
                 importLoaders: 2,
@@ -39,7 +39,6 @@ rules.push({
         }, {
             loader: 'sass-loader'
         }]
-    })
 });
 
 
@@ -65,53 +64,39 @@ module.exports = {
         modules: ['node_modules', 'js', 'styles', 'assets', 'assets/img', 'assets/font']
 
     },
+    mode: 'production',
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    chunks: 'all'
+                }
+            }
+        }
+    },
     module: {
         rules
     },
-    // for sanity check purpose
-    devServer: {
-        contentBase: './app-build',
-        noInfo: true,
-        clientLogLevel: 'warning',
-        stats: 'errors-only',
-        historyApiFallback: true,
-        port: 4000,
-        host: 'localhost',
-        headers: {
-            'Access-Control-Allow-Origin': '*'
-        }
-    },
     plugins: [
         // new BundleAnalyzerPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"production"'
+        }),
         new StyleLintPlugin({
             failOnError: true,
             emitErrors: true,
             quiet: false,
             syntax: 'scss'
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: [
-                'app',
-                'vendor'
-            ],
-            minChunks: Infinity
-        }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: true,
             favicon: './src/assets/img/favicon.ico'
         }),
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
-        }),
-        new webpack.optimize.ModuleConcatenationPlugin(),
-        new MinifyPlugin(),
-        new ExtractTextPlugin({
-            filename: 'styles/[name].[hash].css',
-            allChunks: true
-        }),
-        new webpack.optimize.AggressiveMergingPlugin()
+        new MiniCssExtractPlugin({
+            filename: 'styles/[name].[hash].css'
+        })
     ]
 };

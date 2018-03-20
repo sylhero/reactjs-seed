@@ -48,7 +48,6 @@ Latest ✔ | Latest ✔ | 10+ ✔ | Latest ✔ | 6.1+ ✔ |
 - `npm run build` package the project
 - `npm run server` start localhost
 - `npm run production` make production build
-- `npm run storybook` start storybook
-- `npm run start` equals to `npm run test:unit` and `npm run dev`
+- `npm run start` equals to `npm run build` and `npm run server`
 
 

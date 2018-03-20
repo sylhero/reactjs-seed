@@ -59,6 +59,7 @@ module.exports = {
         filename: 'js/[name].bundle.[hash].js',
         publicPath: '/'
     },
+    mode: 'development',
     resolve: {
         extensions: [
             '.js',
