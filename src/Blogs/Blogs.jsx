@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-
-const Blogs = ({ history }) => {
+const Blogs = ({ state }) => {
     const test = () => {
-        history.push('/');
+        console.log(state);
     };
     return (
         <div>
             <button onClick={test}>Blogs</button>
         </div>);
 };
-
-Blogs.propTypes = {
-    history: PropTypes.object.isRequired
+const mapStateToProps = (state) => {
+    return {
+        state
+    };
 };
 
-export default Blogs;
+Blogs.propTypes = {
+    state: PropTypes.object.isRequired
+};
+
+export default connect(mapStateToProps)(Blogs);

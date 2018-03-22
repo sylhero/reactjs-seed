@@ -47,7 +47,7 @@ export class News extends React.Component {
     renderLogic = () => {
         let result = (
             <div>
-                <img src={loading} alt="loading" />
+                <img src={loading} alt="loading" className={styles.loadingImage} />
             </div>
         );
         if (this.props.news.isFulfilled) {
@@ -58,7 +58,7 @@ export class News extends React.Component {
 
     render = () => {
         return (
-            <div className={styles.cardDiv}>
+            <div className={styles.news}>
                 { this.renderLogic() }
             </div>
         );

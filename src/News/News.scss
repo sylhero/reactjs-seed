@@ -1,4 +1,14 @@
-.cardDiv {
-    background-color: #ececec;
+.news {
     padding: 30px;
+    .loadingImage {
+        top: 30%;
+        left: 50%;
+        position: absolute;
+        transition: all 2s ease-in-out;
+    }
+
+    .loadingImage:hover {
+        transform: translate(350px,0);
+    }
 }
+

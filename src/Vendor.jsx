@@ -6,3 +6,4 @@ import 'react-redux';
 import 'redux';
 import 'prop-types';
 import 'react-router-dom';
+import 'react-color';
