@@ -3,8 +3,7 @@
 exports[`Welcome should create a snapshot 1`] = `
 <div>
   <h1>
-    hello 
-    test
+    hello github
   </h1>
 </div>
 `;

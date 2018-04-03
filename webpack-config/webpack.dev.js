@@ -2,6 +2,7 @@ const rules = require('./webpack.rules');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 /**
@@ -98,6 +99,12 @@ module.exports = {
      */
     plugins: [
         // new BundleAnalyzerPlugin(),
+        new StyleLintPlugin({
+            failOnError: false,
+            emitErrors: true,
+            quiet: false,
+            syntax: 'scss'
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',

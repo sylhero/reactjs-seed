@@ -10,6 +10,17 @@
      "transformIgnorePatterns": [
          "node_modules/?!(antd)"
      ],
+     "coveragePathIgnorePatterns" : [
+        "<rootDir>/src/.+/__tests__/.+\\.spec\\.js(x?)",
+        "<rootDir>/src/.+/index\\.js(x?)",
+        "<rootDir>/src/ErrorBoundary/ErrorBoundary.jsx",
+        "<rootDir>/src/App.jsx",
+        "<rootDir>/src/index.jsx",
+        "<rootDir>/src/Reducers.jsx",
+        "<rootDir>/src/Routes.jsx",
+        "<rootDir>/src/Store.jsx",
+        "<rootDir>/src/Vendor.jsx"
+    ],
      "setupFiles": ["<rootDir>/testShim.js", "<rootDir>/setupTests.js"],
      "testRegex": "(/__tests__/.*\\.spec)\\.(jsx|js)$",
      "snapshotSerializers": ["enzyme-to-json/serializer"]
