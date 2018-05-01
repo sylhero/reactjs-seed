@@ -5,9 +5,11 @@ import Routes from './Routes';
 const App = () => {
     return (
         <BrowserRouter>
-            <div>
-                {Routes}
-            </div>
+            <React.StrictMode>
+                <div>
+                    {Routes}
+                </div>
+            </React.StrictMode>
         </BrowserRouter>);
 };
 
