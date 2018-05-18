@@ -50,4 +50,7 @@ Latest ✔ | Latest ✔ | 10+ ✔ | Latest ✔ | 6.1+ ✔ |
 - `npm run production` make production build
 - `npm run start` equals to `npm run build` and `npm run server`
 
+## Style Guide
+https://github.com/airbnb/javascript
+
 

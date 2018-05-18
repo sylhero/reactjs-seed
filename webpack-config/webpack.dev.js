@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 /**
  * push dev rules into the default rules array
@@ -48,9 +47,6 @@ module.exports = {
         app: [
             'react-hot-loader/patch',
             './src/index.jsx'
-        ],
-        vendor: [
-            './src/Vendor.jsx'
         ]
     },
     devtool: 'eval',
@@ -98,7 +94,6 @@ module.exports = {
      * StyleLintPlugin is unknown
      */
     plugins: [
-        // new BundleAnalyzerPlugin(),
         new StyleLintPlugin({
             failOnError: false,
             emitErrors: true,

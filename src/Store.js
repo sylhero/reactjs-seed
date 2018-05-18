@@ -10,10 +10,11 @@ if (process.env.NODE_ENV === 'production') {
 } else {
     middleware = [reduxImmutableStateInvariant(), ReduxThunk, promiseMiddleware()];
 }
-
+// eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const configureStore = (initialState) => {
-    const store = createStore(Reducers,
+    const store = createStore(
+        Reducers,
         initialState,
         composeEnhancers(applyMiddleware(...middleware))
     );

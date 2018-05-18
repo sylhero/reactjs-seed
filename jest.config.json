@@ -16,11 +16,12 @@
         "<rootDir>/src/ErrorBoundary/ErrorBoundary.jsx",
         "<rootDir>/src/App.jsx",
         "<rootDir>/src/index.jsx",
-        "<rootDir>/src/Reducers.jsx",
+        "<rootDir>/src/Reducers.js",
         "<rootDir>/src/Routes.jsx",
-        "<rootDir>/src/Store.jsx",
-        "<rootDir>/src/Vendor.jsx"
+        "<rootDir>/src/Store.js",
+        "<rootDir>/src/Vendor.js"
     ],
+     "testResultsProcessor": "jest-junit",
      "setupFiles": ["<rootDir>/testShim.js", "<rootDir>/setupTests.js"],
      "testRegex": "(/__tests__/.*\\.spec)\\.(jsx|js)$",
      "snapshotSerializers": ["enzyme-to-json/serializer"]
