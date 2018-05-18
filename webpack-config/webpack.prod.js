@@ -4,7 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 /**
  * push prod rules into the default rules array
  */
@@ -47,9 +47,6 @@ module.exports = {
     entry: {
         app: [
             './src/index.jsx'
-        ],
-        vendor: [
-            './src/Vendor.js'
         ]
     },
     // use hash to leverage the browser cache
@@ -69,7 +66,7 @@ module.exports = {
             cacheGroups: {
                 commons: {
                     test: /[\\/]node_modules[\\/]/,
-                    name: 'vendor',
+                    name: 'vendors',
                     chunks: 'all'
                 }
             }
@@ -79,7 +76,7 @@ module.exports = {
         rules
     },
     plugins: [
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
         }),
