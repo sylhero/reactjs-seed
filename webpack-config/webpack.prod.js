@@ -49,10 +49,9 @@ module.exports = {
             './src/index.jsx'
         ],
         vendor: [
-            './src/Vendor.jsx'
+            './src/Vendor.js'
         ]
     },
-    devtool: 'cheap-source-map',
     // use hash to leverage the browser cache
     output: {
         path: path.resolve(__dirname, '../app-build'),

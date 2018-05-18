@@ -3,15 +3,6 @@
   "version": "1.0.0",
   "description": "react + redux + antd",
   "main": "./src/index.jsx",
-  "scripts": {
-    "lint": "eslint --fix --ext js --ext jsx src",
-    "test": "npm run lint && jest --config ./jest.config.json --coverage",
-    "build": "npm run test && webpack --config ./webpack-config/webpack.dev.js",
-    "server": "webpack-dev-server --config ./webpack-config/webpack.dev.js",
-    "start": "npm run build && npm run server",
-    "production": "npm run clean && npm run test && webpack --config ./webpack-config/webpack.prod.js",
-    "clean": "rimraf app-build reports coverage .nyc_output"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/sylhero/react-seed"
@@ -25,6 +16,11 @@
   "author": "Yulong Song",
   "license": "ISC",
   "homepage": "https://github.com/sylhero/react-seed/README.md",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=8.10.0",
+    "npm": ">=5.6.0"
+  },
   "devDependencies": {
     "autoprefixer": "^8.2.0",
     "axios-mock-adapter": "^1.14.1",
@@ -59,11 +55,10 @@
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.3.0",
-    "redux-immutable-state-invariant": "^2.1.0",
     "rimraf": "^2.6.2",
-    "sass-loader": "^6.0.7",
+    "sass-loader": "^7.0.1",
     "stats-webpack-plugin": "^0.6.2",
-    "style-loader": "^0.20.3",
+    "style-loader": "^0.21.0",
     "stylelint": "^9.2.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-webpack-plugin": "^0.10.4",
@@ -80,15 +75,25 @@
     "classnames": "^2.2.5",
     "lodash": "^4.17.5",
     "prop-types": "^15.6.1",
-    "react": "^16.3.0",
+    "react": "^16.3.2",
     "react-color": "^2.14.0",
-    "react-dom": "^16.3.0",
+    "react-dom": "^16.3.2",
     "react-hot-loader": "^4.0.1",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "redux-promise-middleware": "5.0.0",
+    "redux": "^4.0.0",
+    "redux-promise-middleware": "5.1.1",
+    "redux-immutable-state-invariant": "^2.1.0",
     "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "lint": "eslint --fix --ext js --ext jsx src",
+    "test": "npm run lint && jest --config ./jest.config.json --coverage",
+    "build": "npm run test && webpack --config ./webpack-config/webpack.dev.js",
+    "server": "webpack-dev-server --config ./webpack-config/webpack.dev.js",
+    "start": "npm run build && npm run server",
+    "production": "npm run clean && npm run test && webpack --config ./webpack-config/webpack.prod.js",
+    "clean": "rimraf app-build reports coverage .nyc_output"
   }
 }

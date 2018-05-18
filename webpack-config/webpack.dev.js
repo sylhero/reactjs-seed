@@ -48,9 +48,6 @@ module.exports = {
         app: [
             'react-hot-loader/patch',
             './src/index.jsx'
-        ],
-        vendor: [
-            './src/Vendor.jsx'
         ]
     },
     devtool: 'eval',

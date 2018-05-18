@@ -4,6 +4,7 @@ module.exports = [{
     enforce: 'pre',
     test: /\.jsx?$/,
     include: [path.resolve(__dirname, '../src')],
+    exclude: /node_modules/,
     use: [{
         loader: 'eslint-loader',
         options: {
