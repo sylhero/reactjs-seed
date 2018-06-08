@@ -4,7 +4,10 @@
 */
 
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
   "env": {
     "browser": true,
     "jquery": true,
@@ -12,7 +15,8 @@
     "jest": true
   },
   "plugins": [
-    "react"
+    "react",
+    "flowtype"
  ],
   "globals": {
     "jQuery": 1
@@ -37,6 +41,12 @@
     "react/forbid-prop-types": 0,
     "import/no-named-as-default": 0,
     "jsx-a11y/click-events-have-key-events": 0,
-    "jsx-a11y/no-noninteractive-element-interactions": 0
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "react/prop-types": 0
+  },
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
   }
 }

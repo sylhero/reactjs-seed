@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const FlowWebpackPlugin = require('flow-webpack-plugin');
 
 /**
  * push dev rules into the default rules array
@@ -99,6 +100,11 @@ module.exports = {
             emitErrors: true,
             quiet: false,
             syntax: 'scss'
+        }),
+        new FlowWebpackPlugin({
+            failOnError: true,
+            failOnErrorWatch: false,
+            verbose: false
         }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({

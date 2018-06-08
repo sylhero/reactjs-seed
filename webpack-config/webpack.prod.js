@@ -4,6 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const FlowWebpackPlugin = require('flow-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 /**
  * push prod rules into the default rules array
@@ -46,7 +47,7 @@ rules.push({
 module.exports = {
     entry: {
         app: [
-            './src/index.jsx'
+            './src/App.jsx'
         ]
     },
     // use hash to leverage the browser cache
@@ -77,8 +78,14 @@ module.exports = {
     },
     plugins: [
         // new BundleAnalyzerPlugin(),
+
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
+        }),
+        new FlowWebpackPlugin({
+            failOnError: true,
+            printFlowOutput: true,
+            verbose: true
         }),
         new StyleLintPlugin({
             failOnError: true,

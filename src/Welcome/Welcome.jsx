@@ -1,11 +1,17 @@
+// @flow
+
 import React from 'react';
+// $FlowFixMe
 import WelcomeCss from './Welcome.scss';
 
+type Props = {
+    username: string
+};
 
-const Welcome = () => {
+const Welcome = (props: Props) => {
     return (
         <div>
-            <h1 className={WelcomeCss.test}>hello github</h1>
+            <h1 className={WelcomeCss.test}>hello {props.username}</h1>
         </div>);
 };
 
