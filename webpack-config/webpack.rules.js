@@ -40,14 +40,20 @@ module.exports = [{
     }, {
         loader: 'image-webpack-loader',
         options: {
-            gifsicle: {
+            mozjpeg: {
                 progressive: true,
-                optimizationLevel: 7,
-                interlaced: false,
-                pngquant: {
-                    quality: '65-90',
-                    speed: 4
-                }
+                quality: 65
+            },
+            // optipng.enabled: false will disable optipng
+            optipng: {
+                enabled: false,
+            },
+            pngquant: {
+                quality: '65-90',
+                speed: 4
+            },
+            gifsicle: {
+              interlaced: false,
             }
         }
     }]
