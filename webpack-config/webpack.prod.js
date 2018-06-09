@@ -47,7 +47,7 @@ rules.push({
 module.exports = {
     entry: {
         app: [
-            './src/App.jsx'
+            './src/index.jsx'
         ]
     },
     // use hash to leverage the browser cache
@@ -82,6 +82,7 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
         }),
+
         new FlowWebpackPlugin({
             failOnError: true,
             printFlowOutput: true,
