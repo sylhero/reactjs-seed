@@ -4,5 +4,6 @@
 *build/*
 src/index.jsx
 src/Store.jsx
+flow-typed/
 
 
