@@ -33,6 +33,7 @@ Latest ✔ | Latest ✔ | 10+ ✔ | Latest ✔ | 6.1+ ✔ |
     |   |   +-- Widgets.scss //global css configuration
 +-- node_modules
 +-- package.json
++-- Dockerfile
 ```
 
 ## Quick Start
@@ -49,6 +50,9 @@ Latest ✔ | Latest ✔ | 10+ ✔ | Latest ✔ | 6.1+ ✔ |
 - `npm run server` start localhost
 - `npm run production` make production build
 - `npm run start` equals to `npm run build` and `npm run server`
+
+## React Lifecycle
+![alt text](https://cdn-images-1.medium.com/max/800/0*OoDfQ7pzAqg6yETH.)
 
 ## Style Guide
 https://github.com/airbnb/javascript
