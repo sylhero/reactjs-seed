@@ -2,6 +2,9 @@
 
 exports[`Welcome should create a snapshot 1`] = `
 <div>
+  <Icon
+    type="smile-o"
+  />
   <h1>
     hello 
     test
