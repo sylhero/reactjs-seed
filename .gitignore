@@ -96,6 +96,4 @@ sonar-scanner-*
 #############################
 .rempl_endpoint_id
 
-# package-lock.json #
-############################
-package-lock.json
+
