@@ -40,6 +40,12 @@ rules.push({
         loader: 'postcss-loader'
     }, {
         loader: 'sass-loader'
+    }, {
+        loader: 'sass-resources-loader',
+        options: {
+            // Provide path to the file with resources
+            resources: './src/_constant.scss'
+       }
     }]
 });
 
