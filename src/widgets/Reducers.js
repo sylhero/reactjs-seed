@@ -1,8 +1,15 @@
 import { combineReducers } from 'redux';
 import TestMeReducers from './TestMe/Reducers';
 
-const Reducers = combineReducers({
+const WidgetReducers = {
     ...TestMeReducers
-});
+};
 
-export default Reducers;
+const Reducers = combineReducers({ ...WidgetReducers });
+
+
+export {
+    Reducers as default,
+    WidgetReducers
+};
+

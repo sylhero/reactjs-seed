@@ -10,12 +10,12 @@ const store = Store.configureStore();
 const rootElement = document.getElementById('root');
 const appRender = (AppToRender) => {
     render(<AppContainer>
-                <Provider store={store}>
-                    <ErrorBoundary>
-                        <AppToRender />
-                    </ErrorBoundary>
-                </Provider>
-           </AppContainer>, rootElement);
+        <Provider store={store}>
+            <ErrorBoundary>
+                <AppToRender />
+            </ErrorBoundary>
+        </Provider>
+    </AppContainer>, rootElement);
 };
 appRender(App);
 

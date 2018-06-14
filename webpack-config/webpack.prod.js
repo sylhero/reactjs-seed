@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const FlowWebpackPlugin = require('flow-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
+const env = require('../helper').checkEnv();
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 /**
  * push prod rules into the default rules array
@@ -44,7 +45,7 @@ rules.push({
         loader: 'sass-resources-loader',
         options: {
             // Provide path to the file with resources
-            resources: './src/_constant.scss'
+            resources: `./src/${env.PARTNER}/_constant.scss`
             }
         }]
 });
@@ -54,7 +55,7 @@ rules.push({
 module.exports = {
     entry: {
         app: [
-            './src/index.jsx'
+            `./src/${env.PARTNER}/index.jsx`
         ]
     },
     // use hash to leverage the browser cache
@@ -106,9 +107,9 @@ module.exports = {
             syntax: 'scss'
         }),
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: `./src/${env.PARTNER}/index.html`,
             inject: true,
-            favicon: './src/assets/img/favicon.ico'
+            favicon: `./src/${env.PARTNER}/assets/img/favicon.ico`
         }),
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[hash].css'
