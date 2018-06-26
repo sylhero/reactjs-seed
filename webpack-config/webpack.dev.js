@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const FlowWebpackPlugin = require('flow-webpack-plugin');
-
+const env = require('../helper').checkEnv();
 /**
  * push dev rules into the default rules array
  */
@@ -44,7 +44,7 @@ rules.push({
         loader: 'sass-resources-loader',
         options: {
             // Provide path to the file with resources
-            resources: './src/_constant.scss'
+            resources: `./src/${env.PARTNER}/_constant.scss`
        }
     }]
 });
@@ -53,7 +53,7 @@ module.exports = {
     entry: {
         app: [
             'react-hot-loader/patch',
-            './src/index.jsx'
+            `./src/${env.PARTNER}/index.jsx`
         ]
     },
     devtool: 'eval',
@@ -114,9 +114,9 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: `./src/${env.PARTNER}/index.html`,
             inject: true,
-            favicon: './src/assets/img/favicon.ico'
+            favicon: `./src/${env.PARTNER}/assets/img/favicon.ico`
         })
     ]
 };
