@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
-import ErrorBoundary from '../common/hoc/ErrorBoundary';
+import ErrorBoundary from './common/hoc/ErrorBoundary';
 import Store from './Store';
 import App from './App';
 
@@ -25,4 +25,3 @@ if (module.hot) {
         appRender(NextApp);
     });
 }
-

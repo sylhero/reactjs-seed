@@ -3,8 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const FlowWebpackPlugin = require('flow-webpack-plugin');
-const env = require('../helper').checkEnv();
 /**
  * push dev rules into the default rules array
  */
@@ -44,7 +42,7 @@ rules.push({
         loader: 'sass-resources-loader',
         options: {
             // Provide path to the file with resources
-            resources: `./src/${env.PARTNER}/_constant.scss`
+            resources: './src/partials/_constant.scss'
        }
     }]
 });
@@ -53,7 +51,7 @@ module.exports = {
     entry: {
         app: [
             'react-hot-loader/patch',
-            `./src/${env.PARTNER}/index.jsx`
+            './src/index.jsx'
         ]
     },
     devtool: 'eval',
@@ -87,9 +85,6 @@ module.exports = {
         // enable HMR depends on OS
         // https://github.com/gaearon/react-hot-loader/issues/511
         hot: true,
-        headers: {
-            'Access-Control-Allow-Origin': '*'
-        },
         // serve index.html in place of 404 responses to allow HTML5 history
         historyApiFallback: true,
         port: 4000,
@@ -107,16 +102,11 @@ module.exports = {
             quiet: false,
             syntax: 'scss'
         }),
-        new FlowWebpackPlugin({
-            failOnError: true,
-            failOnErrorWatch: false,
-            verbose: false
-        }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: `./src/${env.PARTNER}/index.html`,
+            template: `./src/index.html`,
             inject: true,
-            favicon: `./src/${env.PARTNER}/assets/img/favicon.ico`
+            favicon: `./src/assets/img/favicon.ico`
         })
     ]
 };

@@ -18,8 +18,7 @@
         "<rootDir>/src/index.jsx",
         "<rootDir>/src/Reducers.js",
         "<rootDir>/src/Routes.jsx",
-        "<rootDir>/src/Store.js",
-        "<rootDir>/src/Vendor.js"
+        "<rootDir>/src/Store.js"
     ],
      "reporters": [ "default", "jest-junit" ],
      "setupFiles": ["<rootDir>/testShim.js", "<rootDir>/setupTests.js"],

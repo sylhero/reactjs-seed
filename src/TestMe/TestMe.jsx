@@ -1,15 +1,9 @@
-// @flow
 import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Actions from './Actions';
 
-type Props = {
-    testData: Object,
-    actions: Object
-};
-
-export class TestMe extends React.PureComponent<Props> {
+export class TestMe extends React.PureComponent {
     componentDidMount = () => {
         const { actions } = this.props;
         actions.getData();
@@ -21,13 +15,13 @@ export class TestMe extends React.PureComponent<Props> {
     }
 }
 
-const mapStateToProps = (state: Object): Object => {
+const mapStateToProps = (state) => {
     return {
         testData: state.testData
     };
 };
 
-const mapDispatchToProps = (dispatch: Object): Object => {
+const mapDispatchToProps = (dispatch) => {
     const actions = bindActionCreators(Actions, dispatch);
     return {
         actions

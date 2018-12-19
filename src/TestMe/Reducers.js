@@ -1,25 +1,4 @@
-// @flow
-
 import ActionTypes from './ActionTypes';
-
-type State = {
-    isFulFilled: boolean,
-    isPending: boolean,
-    isRejected: boolean,
-    data: {
-        data: {
-            userId: number,
-            id: number,
-            title: string,
-            body: string
-        }
-    }
-};
-
-type Action = {
-    type: string,
-    payload: Object
-};
 
 const initialState = {
     isFulFilled: false,
@@ -35,7 +14,7 @@ const initialState = {
     }
 };
 
-const testData = (state: State = initialState, action: Action): State => {
+const testData = (state = initialState, action) => {
     switch (action.type) {
         case ActionTypes.GET_TEST_DATA_PENDING:
             return {

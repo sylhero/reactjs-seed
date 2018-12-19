@@ -30,34 +30,6 @@ module.exports = [{
         }
     }]
 }, {
-    test: /\.(gif|png|jpe?g|svg|ico)$/,
-    include: path.resolve(__dirname, '../src'),
-    use: [{
-        loader: 'file-loader',
-        options: {
-            name: 'assets/img/[name].[hash].[ext]'
-        }
-    }, {
-        loader: 'image-webpack-loader',
-        options: {
-            mozjpeg: {
-                progressive: true,
-                quality: 65
-            },
-            // optipng.enabled: false will disable optipng
-            optipng: {
-                enabled: false,
-            },
-            pngquant: {
-                quality: '65-90',
-                speed: 4
-            },
-            gifsicle: {
-              interlaced: false,
-            }
-        }
-    }]
-}, {
     test: /\.(eot|ttf|woff|woff2)$/,
     include: path.resolve(__dirname, '../node_modules'),
     use: [{
@@ -67,8 +39,7 @@ module.exports = [{
         }
     }]
 }, {
-    test: /\.(gif|png|jpe?g|svg|ico)$/,
-    include: path.resolve(__dirname, '../node_modules'),
+    test: /\.(gif|png|jpe?g|ico|svg)$/,
     use: [{
         loader: 'file-loader',
         options: {

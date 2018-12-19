@@ -1,11 +1,9 @@
-// @flow
-
 import axios from 'axios';
 
 const baseUrl = 'https://jsonplaceholder.typicode.com/posts/1';
 
 
-const getTestData = (): Promise<Object> => {
+const getTestData = () => {
     return axios.get(baseUrl);
 };
 

@@ -12,4 +12,3 @@ export {
     Reducers as default,
     WidgetReducers
 };
-

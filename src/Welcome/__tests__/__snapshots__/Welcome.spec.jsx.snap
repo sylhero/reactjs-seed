@@ -6,7 +6,7 @@ exports[`Welcome should create a snapshot 1`] = `
     type="smile-o"
   />
   <h1>
-    hello 
+    hello
     test
   </h1>
 </div>

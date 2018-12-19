@@ -1,19 +1,11 @@
-// @flow
-
 import * as React from 'react';
 
-type Props = {
-  children: React.Node,
-};
-type State = {
-    hasError: boolean
-};
-class ErrorBoundary extends React.Component<Props, State> {
+class ErrorBoundary extends React.Component {
     state = {
         hasError: false
     };
 
-    componentDidCatch = (error: string, info: string) => {
+    componentDidCatch = (error, info) => {
         this.setState({hasError: true});
         // eslint-disable-next-line no-console
         console.log(`The error is ${String(error)} and the info is ${String(info)}`);
