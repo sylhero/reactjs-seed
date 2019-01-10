@@ -102,7 +102,7 @@
     "build": "npm run test:unit && webpack --config ./webpack-config/webpack.dev.js",
     "server": "webpack-dev-server --config ./webpack-config/webpack.dev.js",
     "start": "npm run build && npm run server",
-    "production": "npm run clean && npm run test:unit && webpack --config ./webpack-config/webpack.prod.js",
+    "production": "npm run clean && npm run test:unit && npm run flow && webpack --config ./webpack-config/webpack.prod.js",
     "clean": "rimraf app-build reports coverage .nyc_output"
   }
 }
