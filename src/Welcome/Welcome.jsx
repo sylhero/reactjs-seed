@@ -1,9 +1,14 @@
+// @flow strict
 import React from 'react';
 import { Icon } from 'antd';
 
 import WelcomeCss from './Welcome.scss';
 
-const Welcome = (props) => {
+type Props = {
+    username: string
+};
+
+const Welcome = (props: Props) => {
     return (
         <div>
             <Icon type="smile-o" />
