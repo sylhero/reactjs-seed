@@ -23,6 +23,7 @@
   "rules": {
     "no-var": 2,
     "no-new": 0,
+    "no-lonely-if": 0,
     "indent": ["error", 4, { "SwitchCase": 1 }],
     "comma-dangle": ["error", "never"],
     "arrow-body-style": ["error", "always"],

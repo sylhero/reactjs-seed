@@ -88,7 +88,7 @@
     "react-dom": "16.6.3",
     "react-hot-loader": "4.6.3",
     "react-redux": "6.0.0",
-    "react-router": "v4.4.0-beta.6",
+    "react-router": "v4.3.1",
     "react-router-dom": "4.3.1",
     "redux": "4.0.1",
     "redux-immutable-state-invariant": "2.1.0",
@@ -99,9 +99,9 @@
     "flow": "flow",
     "lint": "eslint --fix --ext js --ext jsx src",
     "test:unit": "npm run lint && jest --config ./jest.config.json --coverage",
-    "build": "npm run test:unit && webpack --config ./webpack-config/webpack.dev.js",
+    "build": "npm run lint && webpack --config ./webpack-config/webpack.dev.js",
     "server": "webpack-dev-server --config ./webpack-config/webpack.dev.js",
-    "start": "npm run build && npm run server",
+    "dev": "npm run build && npm run server",
     "production": "npm run clean && npm run test:unit && npm run flow && webpack --config ./webpack-config/webpack.prod.js",
     "clean": "rimraf app-build reports coverage .nyc_output"
   }
