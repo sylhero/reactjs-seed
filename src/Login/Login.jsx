@@ -1,10 +1,9 @@
-// @flow strict
-
 import React from 'react';
 
 import {
     Form, Icon, Input, Button, Checkbox, Row, Col, Layout
 } from 'antd';
+import avatar from '../assets/img/login-avatar.png';
 
 import styles from './Login.scss';
 
@@ -24,6 +23,7 @@ export class Login extends React.PureComponent {
             <Layout className={styles.background} style={{height: '100vh'}}>
                 <Row>
                     <Col span={6} offset={9}>
+                        <img src={avatar} alt="login" />
                         <Form onSubmit={this.handleSubmit} className="login-form">
                             <Form.Item>
                                 {getFieldDecorator('userName', {
