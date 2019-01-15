@@ -78,6 +78,9 @@ module.exports = {
         rules
     },
     devServer: {
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        https: false,
+        disableHostCheck: true,
         contentBase: './app-build',
         noInfo: false,
         clientLogLevel: 'warning',
