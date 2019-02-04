@@ -5,6 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 /**
@@ -16,10 +18,7 @@ rules.push({
     test: /\.css$/,
     include: /(node_modules)/,
     use: [MiniCssExtractPlugin.loader, {
-            loader: 'css-loader',
-            options: {
-                minimize: true
-            }
+            loader: 'css-loader'
         }]
 });
 
@@ -33,8 +32,7 @@ rules.push({
             options: {
                 modules: true,
                 localIdentName: '[name]--[local]',
-                importLoaders: 2,
-                minimize: true
+                importLoaders: 2
             }
         }, {
             loader: 'postcss-loader'
@@ -78,7 +76,15 @@ module.exports = {
                     chunks: 'all'
                 }
             }
-        }
+        },
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true // set to true if you want JS source maps
+            }),
+            new OptimizeCSSAssetsPlugin({})
+        ]
     },
     module: {
         rules
@@ -90,9 +96,9 @@ module.exports = {
             'process.env.NODE_ENV': '"production"'
         }),
         new CompressionPlugin({
-          asset: '[path].gz[query]',
+          filename: '[path].gz[query]',
           algorithm: 'gzip',
-          test: /\.js$|\.css$|\.html$/
+          test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
         }),
         new StyleLintPlugin({
             failOnError: true,
@@ -106,7 +112,8 @@ module.exports = {
             favicon: `./src/assets/img/favicon.ico`
         }),
         new MiniCssExtractPlugin({
-            filename: 'styles/[name].[hash].css'
+            filename: 'styles/[name].[hash].css',
+            chunkFilename: 'styles/[id].css'
         })
     ]
 };
