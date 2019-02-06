@@ -11,7 +11,8 @@ const App = () => {
                     {Routes}
                 </div>
             </React.StrictMode>
-        </BrowserRouter>);
+        </BrowserRouter>
+    );
 };
 
 export default App;

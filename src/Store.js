@@ -8,7 +8,7 @@ let middleware = [];
 if (process.env.NODE_ENV === 'production') {
     middleware = [ReduxThunk, promiseMiddleware()];
 } else {
-    middleware = [reduxImmutableStateInvariant(), ReduxThunk, promiseMiddleware()];
+    middleware = [reduxImmutableStateInvariant(), ReduxThunk, promiseMiddleware];
 }
 // eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

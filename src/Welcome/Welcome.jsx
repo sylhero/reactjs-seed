@@ -15,7 +15,8 @@ const Welcome = (props: Props) => {
             <h1 className={WelcomeCss.test}>
                 {props.username}
             </h1>
-        </div>);
+        </div>
+    );
 };
 
 export default Welcome;
