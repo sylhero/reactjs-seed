@@ -32,6 +32,7 @@
     "@babel/preset-react": "7.0.0",
     "@babel/preset-stage-2": "7.0.0",
     "@babel/register": "7.0.0",
+    "@storybook/react": "4.1.11",
     "autoprefixer": "9.4.7",
     "axios-mock-adapter": "1.16.0",
     "babel-core": "7.0.0-bridge.0",
@@ -106,6 +107,7 @@
     "server": "webpack-dev-server --config ./webpack-config/webpack.dev.js",
     "dev": "npm run build && npm run server",
     "production": "npm run clean && npm run test:unit && npm run flow && webpack --config ./webpack-config/webpack.prod.js",
-    "clean": "rimraf app-build reports coverage .nyc_output"
+    "clean": "rimraf app-build reports coverage .nyc_output",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   }
 }
