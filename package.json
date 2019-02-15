@@ -32,7 +32,6 @@
     "@babel/preset-react": "7.0.0",
     "@babel/preset-stage-2": "7.0.0",
     "@babel/register": "7.0.0",
-    "@storybook/react": "4.1.11",
     "autoprefixer": "9.4.7",
     "axios-mock-adapter": "1.16.0",
     "babel-core": "7.0.0-bridge.0",
@@ -83,6 +82,7 @@
     "webpack-runtime-analyzer": "1.5.0"
   },
   "dependencies": {
+    "@storybook/react": "4.1.11",
     "antd": "3.13.1",
     "axios": "0.18.0",
     "classnames": "2.2.6",
