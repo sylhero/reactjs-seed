@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Button } from 'antd';
 
-const Test = () => {
+const Test = (props) => {
     const [state, setState] = useState({
         count: 0,
         color: '#DC0073'
@@ -10,17 +11,17 @@ const Test = () => {
 
     return (
         <div>
-            <p>
+            <p style={props.style}>
                 test
                 {count}
             </p>
-            <button onClick={() => { setState({ ...state, count: count + 1}); }} type="button">
+            <Button onClick={() => { setState({ ...state, count: count + 1}); }} type="primary">
                 click
-            </button>
+            </Button>
             <span>{color}</span>
-            <button onClick={() => { setState({ ...state, color: '#ffffff' }); }} type="button">
+            <Button onClick={() => { setState({ ...state, color: '#ffffff' }); }} type="primary">
                 click color
-            </button>
+            </Button>
         </div>
     );
 };
