@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const helper = require('../helper');
+
 /**
  * push dev rules into the default rules array
  */
@@ -42,7 +44,7 @@ rules.push({
         loader: 'sass-resources-loader',
         options: {
             // Provide path to the file with resources
-            resources: './src/partials/_constant.scss'
+            resources: `./src/Default/partials/_${helper.theme}Constant.scss`
        }
     }]
 });
@@ -51,7 +53,7 @@ module.exports = {
     entry: {
         app: [
             'react-hot-loader/patch',
-            './src/index.jsx'
+            './src/Default/index.jsx'
         ]
     },
     devtool: 'eval',
@@ -107,9 +109,9 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: `./src/index.html`,
+            template: `./src/Default/index.html`,
             inject: true,
-            favicon: `./src/assets/img/favicon.ico`
+            favicon: `./src/Default/assets/img/favicon.ico`
         })
     ]
 };

@@ -7,6 +7,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const helper = require('../helper');
 
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 /**
@@ -42,7 +43,7 @@ rules.push({
         loader: 'sass-resources-loader',
         options: {
             // Provide path to the file with resources
-            resources: './src/partials/_constant.scss'
+            resources: `./src/Default/partials/_${helper.theme}Constant.scss`
             }
         }]
 });
@@ -52,7 +53,7 @@ rules.push({
 module.exports = {
     entry: {
         app: [
-            `./src/index.jsx`
+            './src/Default/index.jsx'
         ]
     },
     // use hash to leverage the browser cache
@@ -107,9 +108,9 @@ module.exports = {
             syntax: 'scss'
         }),
         new HtmlWebpackPlugin({
-            template: `./src/index.html`,
+            template: `./src/Default/index.html`,
             inject: true,
-            favicon: `./src/assets/img/favicon.ico`
+            favicon: `./src/Default/assets/img/favicon.ico`
         }),
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[hash].css',
