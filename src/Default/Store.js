@@ -6,7 +6,7 @@ import Reducers from './Reducers';
 
 let middleware = [];
 if (process.env.NODE_ENV === 'production') {
-    middleware = [ReduxThunk, promiseMiddleware()];
+    middleware = [ReduxThunk, promiseMiddleware];
 } else {
     middleware = [reduxImmutableStateInvariant(), ReduxThunk, promiseMiddleware];
 }
