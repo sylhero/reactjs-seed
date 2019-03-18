@@ -1,6 +1,6 @@
 const path = require("path");
+const rules = require('../webpack-config/webpack.rules');
 
-var rules = [];
 rules.push({
     test: /\.css$/,
     include: /(node_modules)/,

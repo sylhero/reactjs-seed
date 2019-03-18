@@ -43,7 +43,7 @@ module.exports = [{
     use: [{
         loader: 'file-loader',
         options: {
-            name: 'assets/font/[name].[hash].[ext]'
+            name: 'assets/img/[name].[hash].[ext]'
         }
     }]
 }];
