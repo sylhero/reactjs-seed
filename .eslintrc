@@ -1,47 +1,22 @@
-/* "off" or 0 - turn the rule off
-"warn" or 1 - turn the rule on as a warning (doesn’t affect exit code)
-"error" or 2 - turn the rule on as an error (exit code is 1 when triggered)
-*/
-
 {
-  "extends": [
-    "airbnb"
-  ],
-  "env": {
-    "browser": true,
-    "jquery": true,
-    "node": true,
-    "jest": true
-  },
-  "plugins": [
-    "react"
- ],
-  "globals": {
-    "jQuery": 1
-  },
-  "parser": "babel-eslint",
-  "rules": {
-    "no-var": 2,
-    "no-new": 0,
-    "no-lonely-if": 0,
-    "indent": ["error", 4, { "SwitchCase": 1 }],
-    "comma-dangle": ["error", "never"],
-    "arrow-body-style": ["error", "always"],
-    "react/jsx-indent": [2, 4],
-    "react/jsx-first-prop-new-line": 0,
-    "react/jsx-closing-bracket-location": 0,
-    "react/jsx-indent-props": ["error", 4],
-    "jsx-a11y/href-no-hash": 0,
-    "jsx-a11y/anchor-is-valid": [1, { "aspects": ["invalidHref"] }],
-    "object-curly-spacing": 0,
-    "array-callback-return": 0,
-    "no-alert": 2,
-    "no-plusplus": 0,
-    "react/forbid-prop-types": 0,
-    "import/no-named-as-default": 0,
-    "jsx-a11y/click-events-have-key-events": 0,
-    "jsx-a11y/no-noninteractive-element-interactions": 0,
-    "react/prop-types": 0,
-    "react/destructuring-assignment": 0
-  }
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "react/prop-types": "off",
+        "react/display-name": "off"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
 }
