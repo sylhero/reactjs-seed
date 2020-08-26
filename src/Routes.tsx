@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import AppLayout from './AppLayout';
-import PrivateRoute from './Common/hoc/PrivateRoute';
+// import PrivateRoute from './Common/hoc/PrivateRoute';
 import Welcome from './Welcome';
 
 const rootRoutes = () => {
@@ -9,7 +9,7 @@ const rootRoutes = () => {
         <div>
             <Switch>
                 <Route path="/login" exact component={Welcome} />
-                <PrivateRoute path="/" component={AppLayout} />
+                <Route path="/" component={AppLayout} />
             </Switch>
         </div>
     );
