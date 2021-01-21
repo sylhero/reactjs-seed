@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const webpackbar = require("webpackbar");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -49,13 +50,6 @@ rules.push({
 //     ]
 // });
 
-// source map for dev use
-rules.push({
-    test: /\.js$/,
-    use: ['source-map-loader'],
-    enforce: 'pre'
-});
-
 module.exports = {
     entry: {
         app: ['./src/index.tsx']
@@ -64,7 +58,7 @@ module.exports = {
     cache: true,
     output: {
         path: path.resolve(__dirname, '../app-build'),
-        filename: 'js/[name].bundle.[fullhash].js',
+        filename: 'js/[name].bundle.[contenthash].js',
         publicPath: '/',
         pathinfo: false
     },
@@ -114,6 +108,7 @@ module.exports = {
      */
     plugins: [
         //  BundleAnalyzerPlugin(),
+        new webpackbar(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"development"'
         }),

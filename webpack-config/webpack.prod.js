@@ -6,6 +6,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const webpackbar = require("webpackbar");
 const rules = require('./webpack.rules');
 // const helper = require('../helper');
 
@@ -81,6 +82,9 @@ module.exports = {
         host: 'localhost'
     },
     mode: 'production',
+    stats: {
+        children: false,
+    },
     optimization: {
         splitChunks: {
             cacheGroups: {
@@ -93,19 +97,24 @@ module.exports = {
         },
         minimizer: [
             new TerserPlugin({
-                parallel: true,
-                sourceMap: true,
-                cache: true
+              parallel: true,
+              terserOptions: {
+                // https://github.com/terser/terser#minify-options
+                compress: {
+                  warnings: false,
+                  drop_debugger: true,
+                },
+              },
             }),
             new OptimizeCSSAssetsPlugin({})
-        ]
+          ],
     },
     module: {
         rules
     },
     plugins: [
         // new BundleAnalyzerPlugin(),
-
+        new webpackbar(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
         }),
