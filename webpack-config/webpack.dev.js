@@ -26,29 +26,29 @@ rules.push({
 });
 
 // push app scss rule
-// rules.push({
-//     test: /\.scss$/,
-//     include: [path.resolve(__dirname, '../src')],
-//     use: [
-//         {
-//             loader: 'style-loader'
-//         },
-//         {
-//             loader: 'css-loader',
-//             options: {
-//                 modules: {
-//                     mode: 'local',
-//                     localIdentName: '[name]--[local]'
-//                 },
-//                 importLoaders: 2,
-//                 sourceMap: true
-//             }
-//         },
-//         {
-//             loader: 'sass-loader'
-//         }
-//     ]
-// });
+rules.push({
+    test: /\.scss$/,
+    include: [path.resolve(__dirname, '../src')],
+    use: [
+        {
+            loader: 'style-loader'
+        },
+        {
+            loader: 'css-loader',
+            options: {
+                modules: {
+                    mode: 'local',
+                    localIdentName: '[name]--[local]'
+                },
+                importLoaders: 2,
+                sourceMap: true
+            }
+        },
+        {
+            loader: 'sass-loader'
+        }
+    ]
+});
 
 module.exports = {
     entry: {

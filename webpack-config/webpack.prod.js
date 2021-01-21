@@ -28,27 +28,27 @@ rules.push({
 });
 
 // push app css rule
-// rules.push({
-//     test: /\.scss$/,
-//     include: [path.resolve(__dirname, '../src')],
-//     use: [
-//         MiniCssExtractPlugin.loader,
-//         {
-//             loader: 'css-loader',
-//             options: {
-//                 modules: {
-//                     mode: 'local',
-//                     localIdentName: '[name]--[local]'
-//                 },
-//                 importLoaders: 2,
-//                 sourceMap: false
-//             }
-//         },
-//         {
-//             loader: 'sass-loader'
-//         }
-//     ]
-// });
+rules.push({
+    test: /\.scss$/,
+    include: [path.resolve(__dirname, '../src')],
+    use: [
+        MiniCssExtractPlugin.loader,
+        {
+            loader: 'css-loader',
+            options: {
+                modules: {
+                    mode: 'local',
+                    localIdentName: '[name]--[local]'
+                },
+                importLoaders: 2,
+                sourceMap: false
+            }
+        },
+        {
+            loader: 'sass-loader'
+        }
+    ]
+});
 
 // webpack config
 module.exports = {
@@ -119,7 +119,7 @@ module.exports = {
             'process.env.NODE_ENV': '"production"'
         }),
         new CompressionPlugin({
-            filename: '[path].gz[query]',
+            filename: '[path][base].gz[query]',
             algorithm: 'gzip',
             test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/
         }),
