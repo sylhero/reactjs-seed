@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react';
 
-import { css } from 'emotion';
+import { jsx, css } from '@emotion/react';
 
 const base = css`
     color: hotpink;
@@ -11,7 +12,7 @@ const welcomeStyle = css`
 `;
 
 const Welcome = (): React.ReactElement => {
-    return <div className={welcomeStyle}>welcome</div>;
+    return <div css={welcomeStyle}>welcome</div>;
 };
 
 export default Welcome;

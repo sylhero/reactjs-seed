@@ -3,16 +3,22 @@
     "env": {
         "production": {
             "plugins": [
-                ["emotion", { "hoist": true }],
                 ["@babel/plugin-proposal-class-properties"],
-                ["import", { "libraryName": "antd", "libraryDirectory": "lib", "style": "css" }]
+                ["import", { "libraryName": "antd", "libraryDirectory": "lib", "style": "css" }],
+                [
+                    "@emotion/babel-preset-css-prop",
+                    {
+                        "autoLabel": "dev-only",
+                        "labelFormat": "[local]"
+                    }
+                ]
             ]
         },
         "development": {
             "plugins": [
-                ["emotion", { "sourceMap": true, "autoLabel": true }],
                 ["@babel/plugin-proposal-class-properties"],
-                ["import", { "libraryName": "antd", "libraryDirectory": "lib", "style": "css" }]
+                ["import", { "libraryName": "antd", "libraryDirectory": "lib", "style": "css" }],
+                ["@emotion/babel-preset-css-prop", { "runtime": "automatic" }]
             ]
         }
     }

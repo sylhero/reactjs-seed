@@ -25,29 +25,29 @@ rules.push({
 });
 
 // push app scss rule
-rules.push({
-    test: /\.scss$/,
-    include: [path.resolve(__dirname, '../src')],
-    use: [
-        {
-            loader: 'style-loader'
-        },
-        {
-            loader: 'css-loader',
-            options: {
-                modules: {
-                    mode: 'local',
-                    localIdentName: '[name]--[local]'
-                },
-                importLoaders: 2,
-                sourceMap: true
-            }
-        },
-        {
-            loader: 'sass-loader'
-        }
-    ]
-});
+// rules.push({
+//     test: /\.scss$/,
+//     include: [path.resolve(__dirname, '../src')],
+//     use: [
+//         {
+//             loader: 'style-loader'
+//         },
+//         {
+//             loader: 'css-loader',
+//             options: {
+//                 modules: {
+//                     mode: 'local',
+//                     localIdentName: '[name]--[local]'
+//                 },
+//                 importLoaders: 2,
+//                 sourceMap: true
+//             }
+//         },
+//         {
+//             loader: 'sass-loader'
+//         }
+//     ]
+// });
 
 // source map for dev use
 rules.push({
@@ -60,17 +60,17 @@ module.exports = {
     entry: {
         app: ['./src/index.tsx']
     },
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'cheap-module-source-map',
     cache: true,
     output: {
         path: path.resolve(__dirname, '../app-build'),
-        filename: 'js/[name].bundle.[hash].js',
+        filename: 'js/[name].bundle.[fullhash].js',
         publicPath: '/',
         pathinfo: false
     },
     mode: 'development',
     resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         modules: [path.resolve(__dirname, '../node_modules'), path.resolve(__dirname, '../src')]
     },
     module: {
@@ -118,12 +118,13 @@ module.exports = {
             'process.env.NODE_ENV': '"development"'
         }),
         new CopyPlugin({ patterns: [{ from: './env.js', to: path.resolve(__dirname, '../app-build/config') }] }),
-        new StyleLintPlugin({
-            failOnError: false,
-            emitErrors: true,
-            quiet: false,
-            syntax: 'scss'
-        }),
+        // new StyleLintPlugin({
+        //     failOnError: false,
+        //     emitErrors: true,
+        //     quiet: false,
+        //     context: '../src',
+        //     syntax: 'css'
+        // }),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',

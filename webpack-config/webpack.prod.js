@@ -27,27 +27,27 @@ rules.push({
 });
 
 // push app css rule
-rules.push({
-    test: /\.scss$/,
-    include: [path.resolve(__dirname, '../src')],
-    use: [
-        MiniCssExtractPlugin.loader,
-        {
-            loader: 'css-loader',
-            options: {
-                modules: {
-                    mode: 'local',
-                    localIdentName: '[name]--[local]'
-                },
-                importLoaders: 2,
-                sourceMap: false
-            }
-        },
-        {
-            loader: 'sass-loader'
-        }
-    ]
-});
+// rules.push({
+//     test: /\.scss$/,
+//     include: [path.resolve(__dirname, '../src')],
+//     use: [
+//         MiniCssExtractPlugin.loader,
+//         {
+//             loader: 'css-loader',
+//             options: {
+//                 modules: {
+//                     mode: 'local',
+//                     localIdentName: '[name]--[local]'
+//                 },
+//                 importLoaders: 2,
+//                 sourceMap: false
+//             }
+//         },
+//         {
+//             loader: 'sass-loader'
+//         }
+//     ]
+// });
 
 // webpack config
 module.exports = {
@@ -57,7 +57,7 @@ module.exports = {
     // use hash to leverage the browser cache
     output: {
         path: path.resolve(__dirname, '../app-build'),
-        filename: 'js/[name].bundle.[hash].js',
+        filename: 'js/[name].bundle.[fullhash].js',
         publicPath: '/'
     },
     resolve: {
@@ -126,7 +126,7 @@ module.exports = {
             favicon: './src/assets/img/favicon.ico'
         }),
         new MiniCssExtractPlugin({
-            filename: 'styles/[name].[hash].css',
+            filename: 'styles/[name].[fullhash].css',
             chunkFilename: 'styles/[id].css'
         })
     ]
