@@ -86,6 +86,8 @@ module.exports = {
         children: false,
     },
     optimization: {
+        runtimeChunk: 'single',
+        moduleIds: 'deterministic',
         splitChunks: {
             cacheGroups: {
                 commons: {

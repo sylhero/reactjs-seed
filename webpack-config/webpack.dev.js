@@ -91,6 +91,7 @@ module.exports = {
     },
     optimization: {
         runtimeChunk: 'single',
+        moduleIds: 'deterministic',
         splitChunks: {
             cacheGroups: {
                 vendor: {
@@ -107,7 +108,7 @@ module.exports = {
      * StyleLintPlugin is unknown
      */
     plugins: [
-        //  BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         new webpackbar(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"development"'
