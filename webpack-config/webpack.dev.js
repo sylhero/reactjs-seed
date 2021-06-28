@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const webpackbar = require("webpackbar");
+const webpackbar = require('webpackbar');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
