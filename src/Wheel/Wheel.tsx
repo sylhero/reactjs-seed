@@ -5,10 +5,8 @@ import './Wheel.scss';
 
 const getPrizeCss = (degree: number, backgroundColor: string) => {
     return css({
-        '-webkit-transform': `rotate(${degree}deg)`,
-        '-moz-transform': `rotate(${degree}deg)`,
-        '-o-transform': `rotate(${degree}deg)`,
-        '-ms-transform': `rotate(${degree}deg)`,
+        WebkitTransform: `rotate(${degree}deg)`,
+        MozTransform: `rotate(${degree}deg)`,
         transform: `rotate(${degree}deg)`,
         borderColor: `${backgroundColor} transparent !important`
     });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import 'antd/dist/antd.css';
+import './index.scss';
 // import ErrorBoundary from './common/hoc/ErrorBoundary';
 import App from './App';
 import { RecoilRoot } from 'recoil';

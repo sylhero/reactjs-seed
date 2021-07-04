@@ -5,8 +5,8 @@
 
     /*WRAPPER*/
     #wrapper {
-        margin: 40px auto 0;
-        width: 266px;
+        margin: 60vh auto 0;
+        width: 250px;
         position: relative;
     }
 
@@ -34,6 +34,7 @@
         height: 242px;
         border-radius: 50%;
         z-index: 1000;
+        animation: pulse 20s linear infinite;
     }
 
     #inner-wheel {
@@ -316,6 +317,18 @@
         50% {
             transform: rotate(7deg);
             -webkit-transform: rotate(7deg);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
+        }
+        50% {
+            box-shadow: 0 0 16px #ea4c89, inset 0 0 14px #ea4c89;
+        }
+        100% {
+            box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
         }
     }
 
