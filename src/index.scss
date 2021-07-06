@@ -4,12 +4,12 @@
     }
     html,
     body {
-        min-height: 100vh;
-        min-height: fill-available;
-        background: url('./assets/img/background2.jpeg') no-repeat center center fixed;
+        min-height: 80vh;
+        background: url('./assets/img/background.jpg') no-repeat center center fixed;
         background-size: cover;
         width: 100%;
         height: 100%;
+        overflow: hidden;
     }
     * {
         box-sizing: border-box;
