@@ -70,8 +70,8 @@ const Wheel = (): React.ReactElement => {
         count: 8,
         calc: (props, i) => ({
             ...props,
-            x: (i + 1) * (window.innerWidth / 2) - (i + 1) * 100,
-            y: 400 + Math.random() * 100 - 50 + (i === 2 ? -80 : 0)
+            x: window.innerWidth / 2,
+            y: window.innerHeight / 2
         })
     };
     const defaultConfig = {
