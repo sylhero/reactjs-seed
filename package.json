@@ -100,6 +100,7 @@
         "@emotion/react": "11.1.4",
         "antd": "4.10.3",
         "axios": "0.21.1",
+        "fireworks": "2.2.7",
         "graphql": "15.4.0",
         "react": "17.0.1",
         "react-color": "2.19.3",
