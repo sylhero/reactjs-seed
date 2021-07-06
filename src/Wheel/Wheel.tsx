@@ -164,7 +164,7 @@ const Wheel = (): React.ReactElement => {
                     // 模拟调用接口异步抽奖
                     setTimeout(() => {
                         // 假设拿到后端返回的中奖索引
-                        const index = (Math.random() * 6) >> 0;
+                        const index = 2; //(Math.random() * 6) >> 0;
                         // 调用stop停止旋转并传递中奖索引
                         wheel.current.stop(index);
                     }, 2500);
