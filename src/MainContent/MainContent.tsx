@@ -7,7 +7,7 @@ const MainContent = (): React.ReactElement => {
     return (
         <div>
             <Switch>
-                <Route path={['/', '/home']} exact component={Wheel} />
+                <Route path={['/:id/']} exact component={Wheel} />
             </Switch>
         </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, generatePath } from 'react-router-dom';
 
-const LOCALSTORAGE_USER_KEY = 'LOCALSTORAGE_USER_KEY';
+const LOCALSTORAGE_USER_KEY = 'LUOBO_GAMES_KEY';
 const PrivateRoute = ({ component: Component, ...rest }: any) => {
     const token = localStorage.getItem(LOCALSTORAGE_USER_KEY) || false;
     return (
@@ -14,10 +14,9 @@ const PrivateRoute = ({ component: Component, ...rest }: any) => {
                     <Component {...props} />
                 ) : (
                     <Redirect
-                        to={{
-                            pathname: '/login',
-                            state: { from: props.location }
-                        }}
+                        to={generatePath('/:id/login', {
+                            id: props.match.params.id
+                        })}
                     />
                 )
             }
